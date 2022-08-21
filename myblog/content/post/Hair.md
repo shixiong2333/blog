@@ -34,5 +34,5 @@ editPost:
     appendFilePath: true # to append file path to Edit link
 ---
 
-雯雯的头发真呀真好看~~~
+雯雯的头发真呀真好看~~~~~
 ![Hair](hair.jpg)
