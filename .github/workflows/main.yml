@@ -12,17 +12,8 @@ jobs:
     
     steps:
       - name: Check Out
-        uses: actions/checkout@v2
-        
-      - name: rsync deployments
-        uses: Pendect/action-rsyncer@v1.1.0
-        env:
-          DEPLOY_KEY: ${{ secrets.ALIYUN_KEY }}
-        with:
-          flags: '-avzr --delete'
-          src: 'myblog/public/'
-          dest: '${{ secrets.ALIYUN_USER }}@${{ secrets.ALIYUN_HOST }}:${{ secrets.ALIYUN_PATH }}'
-          
+        uses: actions/checkout@v3
+
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@master
         with:
@@ -30,8 +21,3 @@ jobs:
           username: ${{ secrets.ALIYUN_USER }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
           script: bash /root/blog_develop.sh
-          
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
