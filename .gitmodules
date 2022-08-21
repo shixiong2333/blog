@@ -1,7 +1,0 @@
-[submodule "simpleegineerblog/public"]
-	path = simpleegineerblog/public
-	url = https://github.com/shixiong2333/simpleengineer.github.io.git
-	branch = main
-[submodule "simpleegineerblog/themes/hugo-theme-stack"]
-	path = simpleegineerblog/themes/hugo-theme-stack
-	url = https://github.com/CaiJimmy/hugo-theme-stack/
