@@ -1,4 +1,3 @@
-
 # This is a basic workflow to help you get started with Actions
 
 name: CI
@@ -14,22 +13,25 @@ jobs:
     steps:
       - name: Check Out
         uses: actions/checkout@v2
+        
+      - name: rsync deployments
+        uses: Pendect/action-rsyncer@v1.1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.ALIYUN_KEY }}
+        with:
+          flags: '-avzr --delete'
+          src: 'public/'
+          dest: '${{ secrets.ALIYUN_USER }}@${{ secrets.ALIYUN_HOST }}:${{ secrets.ALIYUN_PATH }}'
           
-      # 使用SSH远程连接
       - name: SSH Remote Commands
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.ALIYUN_HOST }}
           username: ${{ secrets.ALIYUN_USER }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
-          script: bash /root/blog_del.sh
+          script: bash /root/blog_develop.sh
           
-      # 用SCP将文件传到远端服务器
-      - name: SCP Files to aliyun
-        uses: appleboy/scp-action@master
+      - name: Use Node.js
+        uses: actions/setup-node@v1
         with:
-          host: ${{ secrets.ALIYUN_HOST }}
-          username: ${{ secrets.ALIYUN_USER }}
-          password: ${{ secrets.ALIYUN_PASSWORD }}
-          source: "./public"
-          target: ${{ secrets.ALIYUN_PATH }}
+          node-version: '12.x'
