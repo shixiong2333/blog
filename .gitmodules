@@ -1,6 +1,3 @@
 [submodule "myblog/themes/PaperMod"]
 	path = myblog/themes/PaperMod
 	url = https://github.com/adityatelange/hugo-PaperMod.git
-[submodule "myblog/public"]
-	path = myblog/public
-	url = https://github.com/shixiong2333/simpleengineer.github.io.git
