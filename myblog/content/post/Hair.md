@@ -1,6 +1,6 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
+title: "Hair"
+date: 2022-08-21T21:44:34+08:00
 draft: true
 tags: ["first"]
 author: "Me"
@@ -34,3 +34,5 @@ editPost:
     appendFilePath: true # to append file path to Edit link
 ---
 
+雯雯的头发真呀真好看~
+![Hair](hair.jpg)
